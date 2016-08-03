@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<!-- This is the TITLE of our webpage -->
+	
+	<title>Maynooth University Chinese Summer School 2016</title>
+
+	<!-- You should not need to edit any of the lines below here until you pass the line which says 
+	<body> -->
+	
+	<!-- these three lines are for the Web Browser to figure out how to display this page
+	in the best way on your device screen -->
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<!-- And JQuery - one of the most important Javascript libraries on the Internet today -->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+	<!-- This is the link to Leaflet for the CSS file and its Javascript file -->
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+	
+	<!-- Latest Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Bootstrap theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<!-- Bootstrap JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	  <div class="container">
+		 <div class="row"> 
+			 
+			 <!-- This is the start of your web page -->
+			 	
+	
+	<h1>Adding Location Markers to a Map</h1>
+	
+	<div id="map" style="width: 100%; height: 600px"></div>
+
+
+	<script>
+
+
+var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+});
+var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+});
+
+
+var listOfLayers = [Esri_WorldImagery,OpenStreetMap_Mapnik];
+
+var baseMaps = {
+    "ESRI Aerial": Esri_WorldImagery,
+    "OpenStreetMap Streets": OpenStreetMap_Mapnik
+};
+<!-- Here is the CENTER coordinates of our map -->
+
+var LatitudeCenter = 53.38389;
+
+var LongitudeCenter = -6.57733;
+
+<!-- here is the starting zoom level of our map -->
+
+var ZoomLevel = 14;
+
+var mymap = L.map('map', {
+    center: [LatitudeCenter,  LongitudeCenter],
+    zoom: ZoomLevel,
+    layers: listOfLayers
+});
+
+L.control.layers(baseMaps).addTo(mymap);
+
+// We can add markers in two ways. 
+
+// The first way is directly onto the Map Object
+L.marker([53.39118, -6.56608]).addTo(mymap).bindPopup("This is Carton House Hotel");
+
+// The second by creating a variable. 
+var marker = L.marker([53.39050, -6.56612]).addTo(mymap);
+marker.bindPopup("This is also Carton House Hotel");
+
+
+	</script>
+	
+
+			 <!-- This is the end of your web page -->
+			 <!-- You should not change any code below this line -->
+			 <!-- If you change the code below here and it is incorrect 
+			 then your web page will not display correctly -->
+
+
+	</div> <!-- end a row -->	
+</div> <!-- close the container -->
+</body>
+</html>
