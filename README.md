@@ -20,6 +20,10 @@ Sublime Text Editor http://www.sublimetext.com/2
 
 **US Geological Survey Current Earth Quake Activity for the Earth in GeoJSON format**: http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
 
+** Color Brewer ** http://colorbrewer2.org/ - Useful suggestions on good color combinations for web-based mapping
+
+** OpenStreetMap Map Features ** http://wiki.openstreetmap.org/wiki/Map_Features
+
 ### Overpass Turbo - for OpenStreetMap Data
 https://overpass-turbo.eu/#
 
