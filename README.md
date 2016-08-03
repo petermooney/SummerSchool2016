@@ -10,8 +10,10 @@ Sublime Text Editor http://www.sublimetext.com/2
 
 ### Links used within the Lecture Notes
 
-Get the Latitude Longitude of ANY Point http://dbsgeo.com/latlon/
+**Map Compare**: http://tools.geofabrik.de/mc/
 
-LEAFLET - Layer Providers Page - here you can pick a different background layer. The Javascript you require to insert this layer into your webmap application is also included http://leaflet-extras.github.io/leaflet-providers/preview/
+**Get the Latitude Longitude of ANY Point** http://dbsgeo.com/latlon/
 
-US Geological Survey Current Earth Quake Activity for the Earth in GeoJSON format: http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+**LEAFLET - Layer Providers Page** - here you can pick a different background layer. The Javascript you require to insert this layer into your webmap application is also included http://leaflet-extras.github.io/leaflet-providers/preview/
+
+**US Geological Survey Current Earth Quake Activity for the Earth in GeoJSON format**: http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
