@@ -39,10 +39,11 @@
 			 <!-- This is the start of your web page -->
 			 	
 	
-	<h1>Adding Location Markers to a Map - Example e1.html</h1>
+	<h1>Making our Own Get LatLong Tool</h1>
 	
 	<div id="map" style="width: 100%; height: 600px"></div>
-
+	<!-- we need a new DIV content pane to put the information for the GetLatLong Tool -->
+	<div id="mycoordinates"</div>
 
 	<script>
 
@@ -55,45 +56,52 @@ var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 });
 
+
 var listOfLayers = [Esri_WorldImagery,OpenStreetMap_Mapnik];
 
 var baseMaps = {
     "ESRI Aerial": Esri_WorldImagery,
     "OpenStreetMap Streets": OpenStreetMap_Mapnik
 };
+<!-- Here is the CENTER coordinates of our map -->
 
-// Notice here now that we do not specify the zoom or the center. 
+var LatitudeCenter = 53.38389;
+
+var LongitudeCenter = -6.57733;
+
+<!-- here is the starting zoom level of our map -->
+
+var ZoomLevel = 14;
+
 var mymap = L.map('map', {
+    center: [LatitudeCenter,  LongitudeCenter],
+    zoom: ZoomLevel,
     layers: listOfLayers
 });
 
 L.control.layers(baseMaps).addTo(mymap);
 
-// We can add actually make Leaflet handle the centering of the map.  
+// We can add markers in two ways. 
 
-var marker1Coords = L.latLng(53.38389, -6.57733);
-var marker1 = L.marker(marker1Coords).addTo(mymap);
-marker1.bindPopup("This is Marker 1");
+// The first way is directly onto the Map Object
+L.marker([53.39118, -6.56608]).addTo(mymap).bindPopup("This is Carton House Hotel");
 
-var marker2Coords = L.latLng(53.3865, -6.56723);
-var marker2 = L.marker(marker2Coords).addTo(mymap);
-marker2.bindPopup("This is Marker 2");
-
-var marker3Coords = L.latLng(53.2765, -6.58700);
-var marker3 = L.marker(marker3Coords).addTo(mymap);
-marker3.bindPopup("This is Marker 3");
-
-var marker4Coords = L.latLng(53.1865, -6.72710);
-var marker4 = L.marker(marker4Coords).addTo(mymap);
-marker4.bindPopup("This is Marker 4");
-
-// We can use the latLngBounds method (which takes an array of coordinates)
-var mapBounds =  L.latLngBounds([marker1Coords, marker2Coords,marker3Coords,marker4Coords]);
-
-// The map will be fitted to these boundaries. 
-mymap.fitBounds(mapBounds);
+// The second by creating a variable. 
+var marker = L.marker([53.39050, -6.56612]).addTo(mymap);
+marker.bindPopup("This is also Carton House Hotel");
 
 
+// This is the where Javascript is connected to the map when you 'click' on the map
+mymap.on('click', onMapClick);
+
+// THIS IS NEW. This is a special FUNCTION from Javascript. 
+// Leaflet has lots of functionality that we can use. This is very useful to display information about the map
+// e is the Javascript object holding information about the point which has been clicked. 
+function onMapClick(e) {
+	var theDateAndTime = new Date();
+	var mapCenter = mymap.getCenter();
+    $("#mycoordinates").html("<p class = 'lead'>The Maynooth MyGetLatLong Says:<br/> At " + theDateAndTime + "<br/>You clicked the map at Coordinates " + "(Lat, Lon) = " + e.latlng.lat + "," + e.latlng.lng +"<br/>Also the map is at Zoom level "+ mymap.getZoom() + "<br/>The CENTER of the map is currently at Coordinates " + "(Lat,Lon) = " + mapCenter.lat + "," + mapCenter.lng + "</p>");
+}
 
 	</script>
 	
