@@ -16,4 +16,17 @@ Sublime Text Editor http://www.sublimetext.com/2
 
 **LEAFLET - Layer Providers Page** - here you can pick a different background layer. The Javascript you require to insert this layer into your webmap application is also included http://leaflet-extras.github.io/leaflet-providers/preview/
 
+** Mongoose Web Server ** https://www.cesanta.com/products
+
 **US Geological Survey Current Earth Quake Activity for the Earth in GeoJSON format**: http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+
+### Overpass Turbo - for OpenStreetMap Data
+https://overpass-turbo.eu/#
+
+To find all of the nodes representing PARKING around Central London (radius of 3000m) the Overpass API query is as follows
+```
+node
+  [amenity=parking]
+(around:3000,51.507343,-0.127656);
+out body;
+```
