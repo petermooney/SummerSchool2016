@@ -1,3 +1,8 @@
+#### Maynooth University Chinese Summer School August 2016
+### Introduction to Leaflet and Web Mapping
+
+This is a set of lecture notes and practical examples for a laboratory-based lecture workshop on Leaflet and Web-based Mapping. 
+
 #### Suggested Text Editors
 GEANY  http://www.geany.org/download/releases#source  (If you are on Windows or Mac)
 If you are on Linux try (sudo apt-get install geany)
